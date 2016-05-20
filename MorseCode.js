@@ -1,7 +1,5 @@
-var yourText;
-var splitOutText;
-var textToMorse;
-var display=document.getElementById("result").innerHTML;
+var yourText= prompt("Write text to be translated to Morse Code here:  ");
+	yourText=yourText.toLowerCase();
 
 var morseCode = {
 	'a' : '.-',
@@ -44,25 +42,19 @@ var morseCode = {
     ',' : '--..--',
     '?' : '..--..',
     '/' : '-..-.',
-    ' ' : '|'
-};
-
-function scanner(){
-	yourText= prompt("Write text to be translated to Morse Code here");
-	yourText=yourText.toLowerCase;
+    ' ' : '|',
 }
-function splitText(){
-	splitOutText=yourText.split("");
+var textToMorse ="";
 
+for(var i = 0; i < yourText.length; i++){
+   var result = yourText.charAt(i);
+   textToMorse+=morseCode[result];
+ 
 }
 
-for(var i = 0; i < splitOutText.length; i++){
-   textToMorse+= morseCode[splitOutText[i]] + " ";
-   display=textToMorse;
-};
+document.getElementById("result").innerHTML=textToMorse ;
 
-scanner();
-splitText();
+
 
 
 
